@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELION | Institutional B2B Strategic Advisory & Deal Facilitation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#080E18',
+                        carbon: '#0B0C10',
+                        champagne: {
+                            300: '#E2C896',
+                            400: '#D8B878',
+                            500: '#C5A059',
+                            600: '#A6823C',
+                        },
+                        platinum: '#A0A5B5',
+                        glass: 'rgba(11, 12, 16, 0.75)',
+                        'glass-border': 'rgba(197, 160, 89, 0.2)',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-card {
+                background: rgba(11, 12, 16, 0.75);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(197, 160, 89, 0.18);
+            }
+            .glass-card-hover {
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .glass-card-hover:hover {
+                border-color: rgba(197, 160, 89, 0.55);
+                box-shadow: 0 10px 35px -10px rgba(197, 160, 89, 0.2);
+                transform: translateY(-4px);
+            }
+            .text-gold-gradient {
+                background: linear-gradient(135deg, #FFF0D0 0%, #C5A059 50%, #9A7B38 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .gold-glow {
+                box-shadow: 0 0 25px rgba(197, 160, 89, 0.25);
+            }
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-slate-100 font-sans antialiased selection:bg-champagne-500 selection:text-obsidian overflow-x-hidden">
+
+    <!-- CANVAS BACKGROUND FOR WIREFRAME MESH -->
+    <canvas id="hero-mesh" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/85 backdrop-blur-md border-b border-glass-border/40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- BRAND LOGO -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded border border-champagne-500/40 flex items-center justify-center bg-carbon/90 group-hover:border-champagne-500 transition-colors gold-glow">
+                    <span class="font-serif font-bold text-xl text-gold-gradient">A</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg font-semibold tracking-wider text-slate-100 group-hover:text-champagne-400 transition-colors">AURELION</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-champagne-500/80 font-medium">Strategic Advisory</span>
+                </div>
+            </a>
+
+            <!-- DESKTOP MENU -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-xs uppercase tracking-widest text-slate-300 hover:text-champagne-400 transition-colors py-2">Home</a>
+                
+                <!-- PRACTICES DROPDOWN -->
+                <div class="relative group py-2">
+                    <button class="text-xs uppercase tracking-widest text-slate-300 group-hover:text-champagne-400 transition-colors flex items-center space-x-1">
+                        <span>Practices</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] ml-1 transition-transform group-hover:rotate-180 text-champagne-500"></i>
+                    </button>
+                    <div class="absolute left-0 mt-3 w-72 glass-card rounded-lg p-3 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-glass-border z-50">
+                        <a href="#practices" class="block p-2.5 rounded hover:bg-champagne-500/10 transition-colors">
+                            <div class="text-xs font-semibold text-slate-100">1. IT & Financial Engineering</div>
+                            <div class="text-[11px] text-platinum/70 mt-0.5">Sub-contracting & Infrastructure Matches</div>
+                        </a>
+                        <a href="#practices" class="block p-2.5 rounded hover:bg-champagne-500/10 transition-colors">
+                            <div class="text-xs font-semibold text-slate-100">2. Real Estate Mandates</div>
+                            <div class="text-[11px] text-platinum/70 mt-0.5">Developer Buyer Acquisition Strategies</div>
+                        </a>
+                        <a href="#practices" class="block p-2.5 rounded hover:bg-champagne-500/10 transition-colors">
+                            <div class="text-xs font-semibold text-slate-100">3. Cross-Border Trade</div>
+                            <div class="text-[11px] text-platinum/70 mt-0.5">Global Import-Export Connections</div>
+                        </a>
+                        <a href="#practices" class="block p-2.5 rounded hover:bg-champagne-500/10 transition-colors">
+                            <div class="text-xs font-semibold text-slate-100">4. Corporate Governance</div>
+                            <div class="text-[11px] text-platinum/70 mt-0.5">Taxation, Legal & Accounting Structuring</div>
+                        </a>
+                        <a href="#practices" class="block p-2.5 rounded hover:bg-champagne-500/10 transition-colors">
+                            <div class="text-xs font-semibold text-slate-100">5. Business Documentation</div>
+                            <div class="text-[11px] text-platinum/70 mt-0.5">MOUs & Transactional Licensing</div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#engagement" class="text-xs uppercase tracking-widest text-slate-300 hover:text-champagne-400 transition-colors py-2">Engagement Model</a>
+                <a href="#vault" class="text-xs uppercase tracking-widest text-slate-300 hover:text-champagne-400 transition-colors py-2 flex items-center space-x-1.5">
+                    <span>Private Vault</span>
+                    <i class="fa-solid fa-lock text-[10px] text-champagne-500"></i>
+                </a>
+            </nav>
+
+            <!-- RIGHT CTA BUTTON -->
+            <div class="hidden md:flex items-center">
+                <a href="#briefing" class="px-5 py-2.5 text-xs uppercase tracking-wider font-semibold rounded-full border border-champagne-500/80 text-champagne-400 hover:bg-champagne-500 hover:text-obsidian transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]">
+                    Request Executive Briefing
+                </a>
+            </div>
+
+            <!-- MOBILE HAMBURGER BUTTON -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-champagne-400 focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-glass-border px-6 py-6 space-y-4">
+            <a href="#home" class="block text-sm uppercase tracking-wider text-slate-200 hover:text-champagne-400">Home</a>
+            <div class="border-t border-slate-800 pt-3">
+                <span class="text-xs uppercase tracking-widest text-champagne-500 font-semibold block mb-2">Practices</span>
+                <div class="space-y-2 pl-3">
+                    <a href="#practices" class="block text-xs text-slate-300 hover:text-champagne-400">IT & Financial Engineering</a>
+                    <a href="#practices" class="block text-xs text-slate-300 hover:text-champagne-400">Real Estate Mandates</a>
+                    <a href="#practices" class="block text-xs text-slate-300 hover:text-champagne-400">Cross-Border Trade</a>
+                    <a href="#practices" class="block text-xs text-slate-300 hover:text-champagne-400">Corporate Governance</a>
+                    <a href="#practices" class="block text-xs text-slate-300 hover:text-champagne-400">Business Documentation</a>
+                </div>
+            </div>
+            <a href="#engagement" class="block text-sm uppercase tracking-wider text-slate-200 hover:text-champagne-400 border-t border-slate-800 pt-3">Engagement Model</a>
+            <a href="#vault" class="block text-sm uppercase tracking-wider text-slate-200 hover:text-champagne-400 border-t border-slate-800 pt-3">Private Vault 🔒</a>
+            <a href="#briefing" class="block w-full text-center px-4 py-3 text-xs uppercase tracking-wider font-semibold rounded-full border border-champagne-500 text-champagne-400 hover:bg-champagne-500 hover:text-obsidian transition-colors mt-4">
+                Request Executive Briefing
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section id="home" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-obsidian/60 to-obsidian pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            
+            <!-- BADGE -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-card border border-champagne-500/30 text-champagne-400 text-xs font-medium uppercase tracking-widest mb-8">
+                <span class="w-2 h-2 rounded-full bg-champagne-500 animate-pulse"></span>
+                <span>Institutional Corporate Intermediary</span>
+            </div>
+
+            <!-- MAIN HEADLINE -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-slate-100 leading-[1.15] mb-8">
+                Engineering High-Value B2B Transactions with <span class="text-gold-gradient italic">Uncompromised Governance.</span>
+            </h1>
+
+            <!-- SUB HEADLINE -->
+            <p class="text-base sm:text-lg md:text-xl text-platinum/90 max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                We act as the deal orchestrator and growth engine—matching capital, project sponsors, real estate developers, and enterprise execution partners under an institutional, performance-linked framework.
+            </p>
+
+            <!-- CTA BUTTONS -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#briefing" class="w-full sm:w-auto px-8 py-4 text-xs uppercase tracking-widest font-semibold rounded-full bg-champagne-500 text-obsidian hover:bg-champagne-400 transition-all duration-300 gold-glow transform hover:-translate-y-0.5">
+                    Initiate Confidential Consultation
+                </a>
+                <a href="#practices" class="w-full sm:w-auto px-8 py-4 text-xs uppercase tracking-widest font-semibold rounded-full glass-card text-slate-200 border border-slate-700 hover:border-champagne-500/50 hover:text-champagne-400 transition-all duration-300">
+                    Explore Practice Verticals ↓
+                </a>
+            </div>
+
+            <!-- TRUST METRICS STRIP -->
+            <div class="mt-20 pt-10 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient">$1.2B+</div>
+                    <div class="text-[11px] uppercase tracking-wider text-platinum/70 mt-1">Facilitated Volume</div>
+                </div>
+                <div>
+                    <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient">100%</div>
+                    <div class="text-[11px] uppercase tracking-wider text-platinum/70 mt-1">Success-Fee Framework</div>
+                </div>
+                <div>
+                    <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient">Strict NDA</div>
+                    <div class="text-[11px] uppercase tracking-wider text-platinum/70 mt-1">Institutional Privacy</div>
+                </div>
+                <div>
+                    <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient">5 Verticals</div>
+                    <div class="text-[11px] uppercase tracking-wider text-platinum/70 mt-1">Multi-Sector Intermediary</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: LIVE TICKER STRIP -->
+    <section class="py-4 bg-carbon/90 border-y border-glass-border/40 overflow-hidden relative z-20">
+        <div class="flex whitespace-nowrap animate-marquee items-center text-xs tracking-widest text-platinum uppercase font-medium">
+            <div class="flex items-center space-x-8 shrink-0">
+                <span>B2B TECH & FINANCIAL MATCHMAKING</span>
+                <span class="text-champagne-500">•</span>
+                <span>DEVELOPER MANDATE SALES</span>
+                <span class="text-champagne-500">•</span>
+                <span>CROSS-BORDER TRADE FACILITATION</span>
+                <span class="text-champagne-500">•</span>
+                <span>TAXATION & LEGAL STRUCTURING</span>
+                <span class="text-champagne-500">•</span>
+                <span>PERFORMANCE-FIRST SUCCESS FEE</span>
+                <span class="text-champagne-500">•</span>
+            </div>
+            <div class="flex items-center space-x-8 shrink-0 ml-8">
+                <span>B2B TECH & FINANCIAL MATCHMAKING</span>
+                <span class="text-champagne-500">•</span>
+                <span>DEVELOPER MANDATE SALES</span>
+                <span class="text-champagne-500">•</span>
+                <span>CROSS-BORDER TRADE FACILITATION</span>
+                <span class="text-champagne-500">•</span>
+                <span>TAXATION & LEGAL STRUCTURING</span>
+                <span class="text-champagne-500">•</span>
+                <span>PERFORMANCE-FIRST SUCCESS FEE</span>
+                <span class="text-champagne-500">•</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE 5 PRACTICE VERTICALS -->
+    <section id="practices" class="py-28 relative z-10 bg-obsidian">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs uppercase tracking-[0.2em] text-champagne-500 font-semibold block mb-3">Institutional Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-100 mb-6">The 5 Practice Verticals</h2>
+                <div class="w-16 h-0.5 bg-champagne-500 mx-auto mb-6"></div>
+                <p class="text-platinum text-sm sm:text-base font-light">
+                    Multi-sector transaction facilitation operating under a performance-linked framework with strict governance.
+                </p>
+            </div>
+
+            <!-- VERTICALS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- VERTICAL 1 -->
+                <div class="glass-card rounded-2xl p-8 glass-card-hover flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-champagne-500/30 bg-carbon flex items-center justify-center text-champagne-400 mb-6 group-hover:border-champagne-500 transition-colors">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-champagne-500 font-bold block mb-1">Vertical 01</span>
+                        <h3 class="font-serif text-xl font-semibold text-slate-100 mb-3 group-hover:text-champagne-400 transition-colors">IT & Financial Engineering</h3>
+                        <p class="text-platinum text-xs sm:text-sm font-light leading-relaxed mb-6">
+                            Matching project sponsors with vetted execution partners for sub-contracting and tech infrastructure deals.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-platinum/80 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Enterprise Infrastructure Matching</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Vetted Sub-Contracting Mandates</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VERTICAL 2 -->
+                <div class="glass-card rounded-2xl p-8 glass-card-hover flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-champagne-500/30 bg-carbon flex items-center justify-center text-champagne-400 mb-6 group-hover:border-champagne-500 transition-colors">
+                            <i class="fa-solid fa-building-user text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-champagne-500 font-bold block mb-1">Vertical 02</span>
+                        <h3 class="font-serif text-xl font-semibold text-slate-100 mb-3 group-hover:text-champagne-400 transition-colors">Real Estate Mandates</h3>
+                        <p class="text-platinum text-xs sm:text-sm font-light leading-relaxed mb-6">
+                            Driving direct institutional buyer acquisition and go-to-market strategies for commercial & residential developers.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-platinum/80 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Developer Mandate Sales</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Institutional Buyer Acquisition</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VERTICAL 3 -->
+                <div class="glass-card rounded-2xl p-8 glass-card-hover flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-champagne-500/30 bg-carbon flex items-center justify-center text-champagne-400 mb-6 group-hover:border-champagne-500 transition-colors">
+                            <i class="fa-solid fa-earth-americas text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-champagne-500 font-bold block mb-1">Vertical 03</span>
+                        <h3 class="font-serif text-xl font-semibold text-slate-100 mb-3 group-hover:text-champagne-400 transition-colors">Cross-Border Trade</h3>
+                        <p class="text-platinum text-xs sm:text-sm font-light leading-relaxed mb-6">
+                            Facilitating seamless import-export deal-making, trade connections, and global compliance.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-platinum/80 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Import-Export Deal Facilitation</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Global Compliance Alignment</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VERTICAL 4 -->
+                <div class="glass-card rounded-2xl p-8 glass-card-hover flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-champagne-500/30 bg-carbon flex items-center justify-center text-champagne-400 mb-6 group-hover:border-champagne-500 transition-colors">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-champagne-500 font-bold block mb-1">Vertical 04</span>
+                        <h3 class="font-serif text-xl font-semibold text-slate-100 mb-3 group-hover:text-champagne-400 transition-colors">Corporate Governance</h3>
+                        <p class="text-platinum text-xs sm:text-sm font-light leading-relaxed mb-6">
+                            Providing end-to-end legal structuring, corporate tax planning, accounting, and financial compliance.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-platinum/80 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Corporate Tax & Accounting Optimization</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Transactional Legal Structuring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VERTICAL 5 -->
+                <div class="glass-card rounded-2xl p-8 glass-card-hover flex flex-col justify-between group lg:col-span-1 md:col-span-2 lg:col-start-2">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-champagne-500/30 bg-carbon flex items-center justify-center text-champagne-400 mb-6 group-hover:border-champagne-500 transition-colors">
+                            <i class="fa-solid fa-file-signature text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-champagne-500 font-bold block mb-1">Vertical 05</span>
+                        <h3 class="font-serif text-xl font-semibold text-slate-100 mb-3 group-hover:text-champagne-400 transition-colors">Business Documentation</h3>
+                        <p class="text-platinum text-xs sm:text-sm font-light leading-relaxed mb-6">
+                            Structuring high-level corporate agreements, MOUs, transactional documentation, and regulatory licensing.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-platinum/80 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>High-Level Corporate MOUs & Agreements</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-[10px] text-champagne-500"></i>
+                            <span>Regulatory Licensing Frameworks</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THE ENGAGEMENT MODEL -->
+    <section id="engagement" class="py-28 relative z-10 bg-carbon/50 border-y border-glass-border/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-champagne-500 font-semibold block mb-3">Trust Builder Architecture</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-100 mb-6">
+                        Aligned Interests.<br><span class="text-gold-gradient">Zero Upfront Risk.</span>
+                    </h2>
+                    <p class="text-platinum text-sm sm:text-base font-light leading-relaxed mb-8">
+                        We operate strictly on a performance-linked success-fee basis. Our compensation is directly tied to successful deal execution—ensuring zero advisory risk for enterprise clients while maintaining total discretion through strict Non-Disclosure Agreements (NDAs).
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
+                            <div class="w-8 h-8 rounded-full bg-champagne-500/20 text-champagne-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-circle-dollar-to-slot text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-100">Performance-Linked Compensation</h4>
+                                <p class="text-xs text-platinum/80 mt-1">Zero retainers or upfront risk. Our incentives align 100% with transaction success.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
+                            <div class="w-8 h-8 rounded-full bg-champagne-500/20 text-champagne-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-user-shield text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-100">Strict Confidentiality (NDAs)</h4>
+                                <p class="text-xs text-platinum/80 mt-1">All engagements, asset exchanges, and identities are governed under strict legal non-disclosure protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMPARISON FRAMEWORK -->
+                <div class="glass-card rounded-2xl p-8 border border-glass-border relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-champagne-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <h3 class="text-lg font-serif font-semibold text-slate-100 mb-6 pb-4 border-b border-slate-800">
+                        Engagement Model Benchmark
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- CONVENTIONAL -->
+                        <div class="opacity-60">
+                            <div class="text-xs uppercase tracking-wider text-slate-400 font-medium mb-2">Conventional Intermediaries & Brokers</div>
+                            <div class="grid grid-cols-2 gap-4 text-xs bg-obsidian/50 p-3.5 rounded-lg border border-slate-800">
+                                <div>
+                                    <span class="text-slate-500 block">Upfront Retainers:</span>
+                                    <span class="text-rose-400 font-semibold">Required ($25k–$100k)</span>
+                                </div>
+                                <div>
+                                    <span class="text-slate-500 block">Risk Allocation:</span>
+                                    <span class="text-slate-300">Borne entirely by Client</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AURELION -->
+                        <div class="relative">
+                            <div class="absolute -left-3 top-0 bottom-0 w-1 bg-champagne-500 rounded-full"></div>
+                            <div class="text-xs uppercase tracking-wider text-champagne-400 font-semibold mb-2 flex items-center justify-between">
+                                <span>Aurelion Strategic Framework</span>
+                                <span class="text-[10px] bg-champagne-500/20 text-champagne-300 px-2 py-0.5 rounded">Guaranteed Alignment</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-xs bg-carbon p-4 rounded-lg border border-champagne-500/40 gold-glow">
+                                <div>
+                                    <span class="text-platinum/70 block">Upfront Retainers:</span>
+                                    <span class="text-champagne-400 font-bold text-sm">$0.00 (Zero Fee)</span>
+                                </div>
+                                <div>
+                                    <span class="text-platinum/70 block">Risk Allocation:</span>
+                                    <span class="text-slate-100 font-semibold">100% Success-Fee Basis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 text-center">
+                        <span class="text-[11px] text-platinum/70">Institutional Governance & Regulatory Execution</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: THE PRIVATE VAULT (GATED SECTION) -->
+    <section id="vault" class="py-28 relative z-10 bg-obsidian">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-14 text-center border border-champagne-500/30 relative overflow-hidden group hover:border-champagne-500/60 transition-colors">
+                
+                <!-- AMBIENT BACKDROP GLOW -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-champagne-500/5 via-transparent to-transparent opacity-50"></div>
+
+                <!-- SLEEK 3D GOLD PADLOCK ICON -->
+                <div class="w-20 h-20 mx-auto mb-8 rounded-2xl border border-champagne-500/40 bg-carbon flex items-center justify-center text-champagne-400 text-3xl shadow-2xl animate-float relative z-10 gold-glow">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne-500 font-semibold block mb-3 relative z-10">
+                    Gated Intelligence Layer
+                </span>
+
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-100 mb-6 relative z-10">
+                    Active Mandates & Confidential Inventory
+                </h2>
+
+                <p class="text-platinum text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed mb-10 relative z-10">
+                    Due to strict regulatory compliance and Non-Disclosure Protocols (NDAs), active project inventory, capital mandates, and partner matches are restricted to verified enterprise partners.
+                </p>
+
+                <div class="inline-block relative z-10">
+                    <button id="open-vault-btn" class="px-8 py-4 text-xs uppercase tracking-widest font-semibold rounded-full bg-champagne-500 text-obsidian hover:bg-champagne-400 transition-all duration-300 gold-glow flex items-center space-x-3 cursor-pointer">
+                        <i class="fa-solid fa-key text-xs"></i>
+                        <span>Request Mandate Clearance</span>
+                    </button>
+                </div>
+
+                <div class="mt-8 text-[11px] text-platinum/60 uppercase tracking-widest flex items-center justify-center space-x-4 relative z-10">
+                    <span>• NDA Protocol Governed</span>
+                    <span>• Verified Enterprise Entities Only</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: EXECUTIVE CONSULTATION FORM -->
+    <section id="briefing" class="py-28 relative z-10 bg-carbon/80 border-t border-glass-border/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.2em] text-champagne-500 font-semibold block mb-3">Institutional Gateway</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-100 mb-4">Initiate Executive Briefing</h2>
+                <p class="text-platinum text-sm font-light">Submit your engagement requirements for a confidential consultation with Aurelion Strategic Advisory.</p>
+            </div>
+
+            <form id="executive-form" class="glass-card rounded-2xl p-8 sm:p-12 space-y-6 border border-glass-border">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    <!-- FULL NAME -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-300 mb-2 font-medium">Full Name *</label>
+                        <input type="text" id="form-name" required placeholder="e.g. Alistair Vance" class="w-full bg-obsidian/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-champagne-500 transition-colors placeholder:text-slate-600">
+                    </div>
+
+                    <!-- CORPORATE EMAIL -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-300 mb-2 font-medium">Corporate Email Address *</label>
+                        <input type="email" id="form-email" required placeholder="a.vance@enterprise.com" class="w-full bg-obsidian/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-champagne-500 transition-colors placeholder:text-slate-600">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    <!-- PRIMARY SECTOR / VERTICAL -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-300 mb-2 font-medium">Primary Sector / Vertical *</label>
+                        <select id="form-sector" required class="w-full bg-obsidian/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-champagne-500 transition-colors">
+                            <option value="" disabled selected>Select Primary Vertical...</option>
+                            <option value="IT & Financial Engineering">IT & Financial Engineering</option>
+                            <option value="Real Estate Mandates">Real Estate Mandates</option>
+                            <option value="Cross-Border Trade">Cross-Border Trade</option>
+                            <option value="Corporate Governance">Corporate Governance</option>
+                            <option value="Business Documentation">Business Documentation</option>
+                        </select>
+                    </div>
+
+                    <!-- TRANSACTION SCOPE / VALUE -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-300 mb-2 font-medium">Estimated Transaction Scope / Value *</label>
+                        <select id="form-scope" required class="w-full bg-obsidian/80 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-champagne-500 transition-colors">
+                            <option value="" disabled selected>Select Transaction Bracket...</option>
+                            <option value="$1M - $10M">$1M – $10M USD</option>
+                            <option value="$10M - $50M">$10M – $50M USD</option>
+                            <option value="$50M - $250M">$50M – $250M USD</option>
+                            <option value="$250M+">$250M+ Institutional Scope</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- CONFIDENTIALITY CHECKBOX -->
+                <div class="pt-2">
+                    <label class="flex items-start space-x-3 cursor-pointer">
+                        <input type="checkbox" id="form-nda" required class="mt-1 rounded bg-obsidian border-slate-700 text-champagne-500 focus:ring-champagne-500 focus:ring-offset-obsidian">
+                        <span class="text-xs text-platinum/90 leading-relaxed">
+                            I agree to engage under standard bilateral NDA protocols governed by Aurelion Strategic Advisory. All disclosed transaction parameters remain strictly confidential.
+                        </span>
+                    </label>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="w-full py-4 text-xs uppercase tracking-widest font-semibold rounded-full bg-champagne-500 text-obsidian hover:bg-champagne-400 transition-all duration-300 gold-glow flex items-center justify-center space-x-2 cursor-pointer">
+                    <span>Submit Clearance Request</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer class="bg-obsidian border-t border-glass-border/40 py-16 relative z-10 text-xs text-platinum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <!-- BRAND INFO -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded border border-champagne-500/40 flex items-center justify-center bg-carbon">
+                            <span class="font-serif font-bold text-lg text-gold-gradient">A</span>
+                        </div>
+                        <span class="font-serif text-base font-semibold tracking-wider text-slate-100">AURELION</span>
+                    </div>
+                    <p class="text-[11px] text-platinum/70 leading-relaxed font-light">
+                        Aurelion Strategic Advisory is a high-level institutional corporate intermediary operating on a strictly performance-linked framework under bilateral NDAs.
+                    </p>
+                </div>
+
+                <!-- NAVIGATION LINKS -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider text-champagne-400 font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#home" class="hover:text-champagne-400 transition-colors">Home</a></li>
+                        <li><a href="#practices" class="hover:text-champagne-400 transition-colors">Practices</a></li>
+                        <li><a href="#engagement" class="hover:text-champagne-400 transition-colors">Engagement Model</a></li>
+                        <li><a href="#vault" class="hover:text-champagne-400 transition-colors">Private Vault 🔒</a></li>
+                    </ul>
+                </div>
+
+                <!-- GOVERNANCE & COMPLIANCE -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider text-champagne-400 font-semibold mb-4">Governance & Compliance</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#engagement" class="hover:text-champagne-400 transition-colors">Terms of Engagement</a></li>
+                        <li><a href="#vault" class="hover:text-champagne-400 transition-colors">NDA Protocols</a></li>
+                        <li><a href="#engagement" class="hover:text-champagne-400 transition-colors">Institutional Compliance</a></li>
+                        <li><a href="#briefing" class="hover:text-champagne-400 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- DIRECT CONNECT -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider text-champagne-400 font-semibold mb-4">Direct Connect</h4>
+                    <div class="space-y-3 text-xs">
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-envelope text-champagne-500"></i>
+                            <a href="mailto:contact@aurelionadvisory.com" class="hover:text-champagne-400">contact@aurelionadvisory.com</a>
+                        </div>
+                        <div class="flex items-start space-x-2 text-slate-300">
+                            <i class="fa-solid fa-building-columns text-champagne-500 mt-0.5"></i>
+                            <span>Corporate Offices: London | Dubai | Singapore | New York</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LEGAL DISCLAIMER -->
+            <div class="border-t border-slate-800/80 pt-8 text-[11px] text-platinum/60 space-y-4">
+                <p>
+                    <strong class="text-slate-400">Footer Disclaimer:</strong> Aurelion Strategic Advisory acts strictly as an independent transaction facilitator and corporate advisory firm. We do not operate as a public retail brokerage or investment provider. All client engagements, project matches, and capital allocations are strictly governed by executed bilateral Non-Disclosure Agreements (NDAs) and formal institutional advisory mandates.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-platinum/50 pt-2">
+                    <div>© <span id="year">2026</span> Aurelion Strategic Advisory. All Institutional Rights Reserved.</div>
+                    <div class="mt-2 sm:mt-0">Stealth Institutional Infrastructure</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VAULT CLEARANCE MODAL -->
+    <div id="vault-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/90 backdrop-blur-md opacity-0 invisible transition-all duration-300">
+        <div class="glass-card rounded-2xl max-w-lg w-full p-8 border border-champagne-500/40 relative shadow-2xl transform scale-95 transition-transform duration-300" id="vault-modal-content">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-champagne-400 p-2 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-xl border border-champagne-500/40 bg-carbon mx-auto mb-4 flex items-center justify-center text-champagne-400">
+                    <i class="fa-solid fa-id-card-clip text-xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-slate-100">Private Vault Verification</h3>
+                <p class="text-xs text-platinum/80 mt-2">Enter your corporate credentials to request mandate verification with Aurelion Strategic Advisory.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-slate-300 mb-1 font-semibold">Verified Executive Email</label>
+                    <input type="email" id="modal-email" placeholder="executive@firm.com" class="w-full bg-obsidian border border-slate-700 rounded px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-champagne-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-slate-300 mb-1 font-semibold">Select Vault Focus</label>
+                    <select class="w-full bg-obsidian border border-slate-700 rounded px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-champagne-500">
+                        <option>Real Estate & Capital Mandates</option>
+                        <option>IT & Sub-contracting Deals</option>
+                        <option>Cross-Border Trade Inventory</option>
+                    </select>
+                </div>
+                <button id="modal-submit-btn" class="w-full py-3 text-xs uppercase tracking-widest font-semibold rounded-full bg-champagne-500 text-obsidian hover:bg-champagne-400 transition-colors gold-glow mt-2">
+                    Request Fast-Track NDA Clearance
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-card border border-champagne-500/60 rounded-xl p-4 shadow-2xl flex items-center space-x-3 transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm">
+        <div class="w-8 h-8 rounded-full bg-champagne-500/20 text-champagne-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-circle-check text-sm"></i>
+        </div>
+        <div>
+            <h5 id="toast-title" class="text-xs font-semibold text-slate-100">Clearance Request Received</h5>
+            <p id="toast-desc" class="text-[11px] text-platinum/80 mt-0.5">An Aurelion Senior Partner will establish encrypted contact under NDA protocol.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTION & 3D WIREFRAME MESH -->
+    <script>
+        // Set copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer when clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Private Vault Modal Logic
+        const vaultModal = document.getElementById('vault-modal');
+        const vaultModalContent = document.getElementById('vault-modal-content');
+        const openVaultBtn = document.getElementById('open-vault-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalSubmitBtn = document.getElementById('modal-submit-btn');
+
+        function openModal() {
+            vaultModal.classList.remove('opacity-0', 'invisible');
+            vaultModalContent.classList.remove('scale-95');
+            vaultModalContent.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            vaultModal.classList.add('opacity-0', 'invisible');
+            vaultModalContent.classList.remove('scale-100');
+            vaultModalContent.classList.add('scale-95');
+        }
+
+        openVaultBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        vaultModal.addEventListener('click', (e) => {
+            if (e.target === vaultModal) closeModal();
+        });
+
+        modalSubmitBtn.addEventListener('click', () => {
+            closeModal();
+            triggerToast("Clearance Request Lodged", "Credentials submitted to Aurelion Mandate Desk under NDA.");
+        });
+
+        // Form Submit Handler
+        const form = document.getElementById('executive-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            triggerToast("Executive Briefing Lodged", "Confidential consultation request received by Aurelion Partners.");
+            form.reset();
+        });
+
+        // Toast Trigger Function
+        function triggerToast(title, msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-desc').textContent = msg;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 5000);
+        }
+
+        // Ambient 3D Interactive Canvas Mesh
+        const canvas = document.getElementById('hero-mesh');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let points = [];
+        const spacing = 45;
+        let mouse = { x: -1000, y: -1000 };
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initPoints();
+        }
+
+        function initPoints() {
+            points = [];
+            const cols = Math.ceil(width / spacing) + 2;
+            const rows = Math.ceil(height / spacing) + 2;
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    points.push({
+                        baseX: i * spacing,
+                        baseY: j * spacing,
+                        x: i * spacing,
+                        y: j * spacing,
+                        vx: 0,
+                        vy: 0
+                    });
+                }
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw grid mesh lines
+            ctx.strokeStyle = 'rgba(197, 160, 89, 0.08)';
+            ctx.lineWidth = 1;
+
+            const cols = Math.ceil(width / spacing) + 2;
+
+            for (let i = 0; i < points.length; i++) {
+                let p = points[i];
+
+                // Mouse influence calculation
+                let dx = mouse.x - p.x;
+                let dy = mouse.y - p.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                let maxDist = 160;
+
+                if (dist < maxDist) {
+                    let force = (1 - dist / maxDist) * 12;
+                    let angle = Math.atan2(dy, dx);
+                    p.x -= Math.cos(angle) * force;
+                    p.y -= Math.sin(angle) * force;
+                }
+
+                // Spring back to grid base coordinates
+                p.x += (p.baseX - p.x) * 0.05;
+                p.y += (p.baseY - p.y) * 0.05;
+
+                // Draw connecting grid lines
+                if ((i + 1) % cols !== 0 && i + 1 < points.length) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(points[i + 1].x, points[i + 1].y);
+                    ctx.stroke();
+                }
+
+                if (i + cols < points.length) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(points[i + cols].x, points[i + cols].y);
+                    ctx.stroke();
+                }
+            }
+
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+        };
+    </script>
+</body>
+</html>
